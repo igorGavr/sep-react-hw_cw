@@ -1,14 +1,25 @@
-import {Link, Outlet} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {Outlet} from "react-router-dom";
+
+import css from './UsersPage.module.css';
+import {userService} from "../../services";
+import {User} from "../../components";
 
 const UsersPage = () => {
-    const id = 5
-    const user = {name: 'Petro', age: 15}
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        userService.getAll().then(value => setUsers([...value]))
+    }, [])
 
     return (
-        <div>
-            <Link to={id.toString()} state={user}><button>UserDetails</button></Link>
-            {/*<Link to={id.toString()} state={{user}}><button>UserDetails</button></Link>*/}
-            <Outlet/>
+        <div className={css.UsersPage}>
+            <div className={css.users}>
+                {users.map(user => <User key={user.id} user={user}/>)}
+            </div>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     );
 };

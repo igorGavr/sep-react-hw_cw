@@ -1,25 +1,25 @@
-import {Link, Outlet, useLocation, useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import {useLocation, useParams} from "react-router-dom";
+
+import {userService} from "../../services";
+import {UserDetails} from "../../components";
 
 const UserDetailsPage = () => {
     const {id} = useParams();
-    // const {state:{user}} = useLocation();
     const {state} = useLocation();
-    // const id = params.id;
-    // console.log(id);
-    console.log(state)
+    const [user, setUser] = useState(null);
 
-    // useEffect(()=>{
-    //
-    // },[id,statr])
-    // useEffect(()=>{
-    //
-    // },[state])
+    useEffect(() => {
+        if (!user) {
+            userService.getById(id).then(value => setUser(value))
+            return
+        }
+        setUser(state)
+    }, [id])
 
     return (
-        <div >
-            <Link to={'posts'} state={{...state}}>LinkToPosts</Link>
-            <Outlet/>
+        <div>
+            {user && <UserDetails user={user}/>}
         </div>
     );
 };

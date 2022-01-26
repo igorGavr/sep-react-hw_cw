@@ -1,0 +1,19 @@
+.Header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    gap: 20px;
+    background-color: #012141;
+}
+.Header [class='active']{
+    color: #378fea;
+}
+
+a{
+    font-size: 30px;
+    text-decoration: none;
+    color: snow;
+}
+
+
