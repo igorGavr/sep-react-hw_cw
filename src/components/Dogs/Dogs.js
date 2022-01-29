@@ -1,7 +1,7 @@
 const Dogs = ({dogs,deleteDog}) => {
     return (
         <div>
-            {dogs.map((dog,index) => <div key={index}>{dog} <button onClick={()=>deleteDog(dog)}>Delete</button> </div>)}
+            {dogs.map(({id,name}) => <div key={id}>{name} <button onClick={()=>deleteDog(id)}>Delete</button> </div>)}
         </div>
     );
 };
