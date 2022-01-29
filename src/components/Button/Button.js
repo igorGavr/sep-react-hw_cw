@@ -1,19 +1,11 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useLocation} from "react-router-dom";
 
-const Button = ({to, state, isNav, children, ...props}) => {
+const Button = ({to, state, disabled=false,isNav = false, children, ...props}) => {
+    const {search} = useLocation();
     return (
-        <>
-            {
-                isNav ?
-                    <NavLink to={to} state={state} {...props}>
-                        <button>{children}</button>
-                    </NavLink>
-                    :
-                    <Link to={to} state={state} {...props}>
-                        <button>{children}</button>
-                    </Link>
-            }
-        </>
+        <Link to={to} state={state} {...props}>
+            <button disabled={disabled} className={isNav&&search===to? 'active' : ''}>{children}</button>
+        </Link>
     );
 };
 

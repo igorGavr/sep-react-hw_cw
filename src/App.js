@@ -7,8 +7,8 @@ const App = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Layout/>}>
-                <Route index element={<Navigate to={'episodes/1'}/>}/>
-                <Route path={'episodes/:page'} element={<Episodes/>}/>
+                <Route index element={<Navigate to={'episodes?page=1'} />}/>
+                <Route path={'episodes'} element={<Episodes/>}/>
                 <Route path={'episodes/:id/characters'} element={<Characters/>}/>
             </Route>
 

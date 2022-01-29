@@ -1,0 +1,11 @@
+.Episodes [class='items']{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px;
+}
+.Episodes [class='paginator']{
+    display: flex;
+    justify-content: center;
+}
