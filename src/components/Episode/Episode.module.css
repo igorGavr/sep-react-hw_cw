@@ -1,9 +1,9 @@
-.Episode{
+.Episode {
     border: 1px solid black;
     width: 200px;
 }
 
-.Episode [class='button']{
+.button {
     display: flex;
     justify-content: center;
 }

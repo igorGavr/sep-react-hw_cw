@@ -2,8 +2,7 @@ import {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 
 import {episodeService} from "../../services";
-import {Episode} from "../../components";
-import {Paginator} from "../../components/Paginator/Paginator";
+import {Episode, Paginator} from "../../components";
 import css from './Episodes.module.css';
 
 const Episodes = () => {
@@ -26,17 +25,12 @@ const Episodes = () => {
         })
     }, [searchParams])
 
-    const next = () => {
-        const newPage = `${+searchParams.get('page') + 1}`;
-        setSearchParams({page: newPage})
-    }
-
     return (
-        <div className={css.Episodes}>
-            <div className={'items'}>
+        <div>
+            <div className={css.items}>
                 {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
             </div>
-            <div className={'paginator'}>
+            <div className={css.paginator}>
                 <Paginator info={info}/>
             </div>
         </div>

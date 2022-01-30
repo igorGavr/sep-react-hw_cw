@@ -1,0 +1,9 @@
+.Characters{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.h1center{
+    text-align: center;
+}

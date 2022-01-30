@@ -6,9 +6,11 @@ import css from './Paginator.module.css';
 const Paginator = ({info: {pages, next, prev}}) => {
     const [params] = useSearchParams();
     const pagesArr = [];
+
     for (let i = 1; i <= pages; i++) {
         pagesArr.push(i)
     }
+
     return (
         <div className={css.Paginator}>
             <Button to={`?page=${+params.get('page') - 1}`} disabled={!prev}>Prev</Button>

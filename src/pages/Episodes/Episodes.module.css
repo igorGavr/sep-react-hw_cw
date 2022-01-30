@@ -1,11 +1,12 @@
-.Episodes [class='items']{
+.items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     margin: 25px;
 }
-.Episodes [class='paginator']{
+
+.paginator {
     display: flex;
     justify-content: center;
 }

@@ -14,10 +14,11 @@
     color: black;
 }
 
-.Paginator button:hover{
+.Paginator button:hover {
     background-color: red;
     cursor: grabbing;
 }
+
 .Paginator button:disabled {
     background-color: gray;
     cursor: not-allowed;
