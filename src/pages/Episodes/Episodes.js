@@ -7,7 +7,6 @@ import css from './Episodes.module.css';
 
 const Episodes = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-
     const [episodes, setEpisodes] = useState([]);
     const [info, setInfo] = useState({});
 
@@ -18,11 +17,14 @@ const Episodes = () => {
         }
 
         const page = searchParams.get('page');
-
+        console.log(page)
         episodeService.getAll(page).then(value => {
             setEpisodes([...value.results])
             setInfo({...value.info})
+            console.log(value.info)
+            console.log(value.results)
         })
+
     }, [searchParams])
 
     return (

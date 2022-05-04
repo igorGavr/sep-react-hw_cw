@@ -23,8 +23,11 @@ const Characters = () => {
         }
 
         const {name, characters: links} = await episodeService.getById(id);
+
         setEpisodeName(name)
+
         const ids = getCharactersIds(links);
+        console.log(ids)
         const characters = await characterService.getCharactersByIds(ids);
         setCharacters(characters)
     }

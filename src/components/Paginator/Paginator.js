@@ -10,11 +10,13 @@ const Paginator = ({info: {pages, next, prev}}) => {
     for (let i = 1; i <= pages; i++) {
         pagesArr.push(i)
     }
-
+    console.log(pagesArr)
     return (
         <div className={css.Paginator}>
             <Button to={`?page=${+params.get('page') - 1}`} disabled={!prev}>Prev</Button>
-            {pagesArr.map(page => <Button key={page} to={`?page=${page}`} isNav={true}>{page}</Button>)}
+            {
+                pagesArr.map(page => <Button key={page} to={`?page=${page}`} isNav={true}>{page}</Button>)
+            }
             <Button to={`?page=${+params.get('page') + 1}`} disabled={!next}>Next</Button>
         </div>
     );
